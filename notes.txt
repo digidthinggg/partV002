@@ -1,0 +1,21 @@
+ACC_ADDR_USER is metamask account 1 with testnet eth
+ACC_ADDR_PRODUCT is wallet contract address
+ACC_ADDR_RECEIVER is metamask account 2
+
+ACC_ADDR_USER sends testnet eth to ACC_ADDR_PRODUCT
+ACC_ADDR_USER receives minted Token.sol eth because mintSmartTokensForTokens is triggered
+
+Should get
+  Wallet
+    Receive
+  Wallet
+    MintSmartTokensForTokens
+  Token
+    Mint
+
+ACC_ADDR_USER sends Token.sol eth to ACC_ADDR_RECEIVER
+  Token.sol
+    transferFrom
+
+  Wallet.sol
+    startTransferFrom
