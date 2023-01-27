@@ -52,3 +52,30 @@ contract.on("LogLayer", (layerNum, layerType, started, success, failure) => {
   console.log("success:", success)
   console.log("failure:", failure)
 })
+
+contract.on("HandleLayerStarted", (layerNum, layerType, started, success, failure) => {
+  console.log("EVENT Wallet: HandleLayerStarted")
+  console.log("layerNum:", layerNum)
+  console.log("layerType:", layerType);
+  console.log("started:", started)
+  console.log("success:", success)
+  console.log("failure:", failure)
+})
+
+contract.on("HandleLayerSuccess", (layerNum, layerType, started, success, failure) => {
+  console.log("EVENT Wallet: HandleLayerStarted")
+  console.log("layerNum:", layerNum)
+  console.log("layerType:", layerType);
+  console.log("started:", started)
+  console.log("success:", success)
+  console.log("failure:", failure)
+})
+
+contract.on("HandleLayerFailure", (layerNum, layerType, started, success, failure) => {
+  console.log("EVENT Wallet: HandleLayerStarted")
+  console.log("layerNum:", layerNum)
+  console.log("layerType:", layerType);
+  console.log("started:", started)
+  console.log("success:", success)
+  console.log("failure:", failure)
+})

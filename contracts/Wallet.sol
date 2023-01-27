@@ -84,6 +84,9 @@ contract Wallet {
   }
 
   event LogLayer(uint layerNum, string layerType, bool started, bool success, bool failure);
+  event HandleLayerStarted(uint layerNum, string layerType, bool started, bool success, bool failure);
+  event HandleLayerSuccess(uint layerNum, string layerType, bool started, bool success, bool failure);
+  event HandleLayerFailure(uint layerNum, string layerType, bool started, bool success, bool failure);
 
   function initTransferRequirements() public virtual {
     Layer a = new Layer();
@@ -94,6 +97,11 @@ contract Wallet {
 
     Layer c = new Layer();
     c.setLayerType("transaction");
+
+    // Layer Success
+    // Layer Faiure
+    // Need way to receive those events here
+    // Pass callback ?
 
     transferRequirements.push(a);
     transferRequirements.push(b);
@@ -129,7 +137,32 @@ contract Wallet {
     }
   }
 
+  function handleLayerStarted() external {
+    emit HandleLayerStarted(0, "sms", true, true, true);
+  }
+
+  function handleLayerSuccess() external {
+    emit HandleLayerSuccess(0, "sms", true, true, true);
+
+    // for each transfer in transfers
+    //   get transfer
+    //     for each layer in transfer
+    //       check if all layers are success
+    //         if are then execute transfer
+    //       otherwise ?
+    // or something..
+  }
+
+  function handleLayerFailure() external {
+    emit HandleLayerFailure(0, "sms", true, true, true);
+
+    // for each transfer in trnsfers
+    //   get transfer
+    //     something...
+  }
+
   function executeTransfer() private {
+
     //
   }
 }
